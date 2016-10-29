@@ -15,18 +15,21 @@ zci is_cached   => 1;
 
 use bignum;
 
-my @types = LoadFile(share('ratios.yml'));
+my @base_types = LoadFile(share('ratios.yml'));
+my %prefixes = LoadFile(share('prefixes.yml'));
 
 my %unit_to_plural = ();
 my @units = ();
 my %plural_to_unit = ();
-foreach my $type (@types) {
+
+foreach my $type (@base_types) {
     push(@units, $type->{'unit'});
     push(@units, $type->{'plural'}) unless lc $type->{'unit'} eq lc $type->{'plural'};
     push(@units, @{$type->{'aliases'}});
     $unit_to_plural{lc $type->{'unit'}} = $type->{'plural'};
     $plural_to_unit{lc $type->{'plural'}} = $type->{'unit'};
 }
+my @types = @base_types;
 
 # build triggers based on available conversion units:
 my @triggers = map { lc $_ } @units;
@@ -76,7 +79,7 @@ handle query_lc => sub {
     # also, check the <connecting_word> of regex for possible user intentions 
     my @factor1 = (); # conversion factors, not left_num or right_num values
     my @factor2 = ();
-        
+    
     # gets factors for comparison
     foreach my $type (@types) {
         if($+{'left_unit'} eq $type->{'unit'}) {
