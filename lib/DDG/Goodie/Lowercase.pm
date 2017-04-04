@@ -23,9 +23,7 @@ handle remainder => sub {
         data => {
             input => $input,
         },
-        templates => {
-            group => 'text',
-        }
+        templates => 0
     };
 };
 
