@@ -1,0 +1,6 @@
+{
+	"name": "zeroclickinfo-goodies",
+	"scripts": {
+		"test": "jasmine-node spec"
+	}
+}
