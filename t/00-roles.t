@@ -51,6 +51,7 @@ subtest 'NumberStyler' => sub {
             [['4,431',     '4,32,100', '5.42']       => 'has a mal-formed number'],
             [['4,431',     '4,32,100', '5,42']       => 'is too crazy to work out'],
             [['4_431_123', "4\t32",    '99.999 999'] => 'no tabs in numbers'],
+            [['-'] => 'not just a negative sign'],
         );
 
         foreach my $tc (@invalid_test_cases) {
