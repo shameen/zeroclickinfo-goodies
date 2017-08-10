@@ -38,6 +38,7 @@ ddg_goodie_test(
     '⠓⠑⠀⠇⠇⠕'                       => build_test('⠓⠑⠀⠇⠇⠕', 'he llo'),
     '⠞⠗⠁⠝⠎⠇⠁⠞⠑⠀⠞⠕⠀⠃⠗⠁⠊⠇⠇⠑'   => build_test('⠞⠗⠁⠝⠎⠇⠁⠞⠑⠀⠞⠕⠀⠃⠗⠁⠊⠇⠇⠑', 'translate to braille'),
     '⠁⠎⠙⠋⠀⠅'                       => build_test('⠁⠎⠙⠋⠀⠅', 'asdf k'),
+    '⠛⠕⠕⠙⠲ ⠃⠽⠑⠖'                  => build_test('⠛⠕⠕⠙⠲ ⠃⠽⠑⠖', 'good. bye!')
     # Invalid Queries
     'braille asdf k'                  => undef,
     'how long to learn braille'       => undef,
